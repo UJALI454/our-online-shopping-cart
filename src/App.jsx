@@ -1,23 +1,28 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./Component/NavBar";
-import "./Pages/Home";
-import "./Pages/Products";
-import "./Pages/MyCart";
-import "./Pages/Checkout";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Component/NavBar";
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
+import MyCart from "./Pages/MyCart";
+import Checkout from "./Pages/Checkout";
+import Confirmation from "./Pages/Confirmation";
+import "./App.css"
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Router>
+      <Navbar cartCount={cart.length} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products cart={cart} setCart={setCart} />} />
+        <Route path="/cart" element={<cart cart={cart} setCart={setCart} />} />
+        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
+        <Route path="/confirmation" element={<Confirmation />} />
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

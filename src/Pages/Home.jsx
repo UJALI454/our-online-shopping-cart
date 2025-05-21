@@ -1,15 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+function Home() {
+
+const styles ={
+  
+}
+
+
+
   return (
-    <div>
-      <h1>Online Shopping Cart</h1>
-      <p>
-        Welcome to our store, Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quibusdam, similique!
-      </p>
-      <button>Products</button>
+    <div style={{ textAlign: "center", padding: "2rem" }}>
+      <h1>Welcome to React19 Shop!</h1>
+      <Link to="/products"><button>Shop Now</button></Link>
     </div>
   );
-};
+}
+
 export default Home;

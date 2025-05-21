@@ -1,25 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ cartCount }) {
   return (
-    <div>
-      <Nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/cart">MyCart</Link>
-          </li>
-          <li>
-            <Link to="/checkout">Checkout</Link>
-          </li>
-        </ul>
-      </Nav>
-    </div>
+    <nav>
+      <Link to="/">Home</Link> |{" "}
+      <Link to="/products">Products</Link> |{" "}
+      <Link to="/cart">Cart ({cartCount})</Link>
+    </nav>
   );
 }
+
 export default NavBar;
